@@ -10,33 +10,33 @@ using namespace std;
 const int WIDTH = 20;
 const int HEIGHT = 10;
 
-// Representaci髇 del laberinto
+// Representaci贸n del laberinto
 vector<vector<char>> maze(HEIGHT, vector<char>(WIDTH, '#'));
 
-// Posici髇 del jugador
+// Posici贸n del jugador
 int playerX = 1;
 int playerY = 1;
 
-// Funci髇 para imprimir el laberinto
+// Funci贸n para imprimir el laberinto
 void printMaze() {
-    // Imprimir el laberinto con los bordes y la posici髇 del jugador
+    // Imprimir el laberinto con los bordes y la posici贸n del jugador
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++) {
             if (i == playerY && j == playerX) {
                 cout << "C"; // Imprimir al jugador
             }
             else if (i == 1 && j == 9) {
-                cout << " "; // Dejar vac韆 la posici髇 (1, 9)
+                cout << " "; // Dejar vac铆a la posici贸n (1, 9)
             }
             else {
-                cout << maze[i][j]; // Imprimir los obst醕ulos
+                cout << maze[i][j]; // Imprimir los obst谩culos
             }
         }
         cout << endl;
     }
 }
 
-// Funci髇 para generar el laberinto utilizando Recursive Backtracking
+// Funci贸n para generar el laberinto utilizando Recursive Backtracking
 void generateMaze(int x, int y) {
     static int dx[] = { 1, 0, -1, 0 };
     static int dy[] = { 0, 1, 0, -1 };
@@ -62,7 +62,7 @@ void generateMaze(int x, int y) {
 }
 
 int main() {
-    // Inicializar la semilla para generar n鷐eros aleatorios
+    // Inicializar la semilla para generar n煤meros aleatorios
     srand(time(nullptr));
 
     // Generar el laberinto
@@ -98,16 +98,16 @@ int main() {
             break;
         }
 
-        // Verificar si la nueva posici髇 es un obst醕ulo ('#')
+        // Verificar si la nueva posici贸n es un obst谩culo ('#')
         if (maze[newY][newX] != '#') {
-            // Mover al jugador a la nueva posici髇
+            // Mover al jugador a la nueva posici贸n
             playerX = newX;
             playerY = newY;
 
             // Verificar si el jugador ha ganado
             if (playerX == 1 && playerY == 9) {
                 system("cls");
-                cout << "as ganado!" << endl;
+                cout << "隆Has ganado!" << endl;
                 break; // Salir del bucle del juego
             }
         }
